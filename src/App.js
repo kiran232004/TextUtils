@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
-// import About from './components/About';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from './components/About';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [Mode, setMode] = useState(false);
@@ -52,15 +52,14 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Navbar title="TextUtils" Mode={Mode} showAlert={showAlert} changingMode={changingMode} />
         <Alert alert={alert} />
-        <Textform showAlert={showAlert} Mode={Mode} />
-        {/* <Routes> */}
-          {/* <Route path="/About" element={<About />} />
-          <Route path="/" element={<Textform showAlert={showAlert} Mode={Mode} />} />
+        <Routes>
+          <Route exact path="/About" mode={Mode} element={<About />} />
+          <Route exact path="/" element={<Textform showAlert={showAlert} mode={Mode} />} />
         </Routes>
-      </Router> */}
+      </Router>
     </>
   );
 }

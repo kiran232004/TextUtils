@@ -41,13 +41,20 @@ function Textform(props) {
         setText(event.target.value);
     };
 
+     const containerStyle = {
+        Light: 'bg-white text-gray-900',
+        Dark: 'bg-gray-800 text-white',
+        Red: 'bg-red-50 text-red-800',
+        Yellow: 'bg-yellow-50 text-yellow-800',
+        Green: 'bg-green-50 text-green-800 ',
+      };
+
 
     return (
         <>
             <div className=" container mt-6 mx-auto p-4 md:w-3/4 lg:w-2/3 xl:w-1/2">
-                <h1 className="text-xl md:text-2xl font-bold mb-4 ">Enter the Text to analyze below:</h1>
+                <h1 className={`text-xl md:text-2xl font-bold mb-4 ${containerStyle[props.mode]} `}>Enter the Text to analyze below:</h1>
                 <textarea
-                    
                     className="w-full p-2 mb-4 border border-gray-300 rounded-md  "
                     name="message"
                     value={Text}
@@ -56,19 +63,19 @@ function Textform(props) {
                     required
                 ></textarea>
                 <div className="flex flex-wrap gap-2 mb-4">
-                    <button className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleUpClick}>UpperCase</button>
-                    <button className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleLoClick}>LowerCase</button>
-                    <button className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleClearClick}>Clear Text</button>
-                    <button className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={Speak}>Speak Text</button>
-                    <button className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={downloadText}>Download Text</button>
+                    <button disabled={Text.length===0} className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleUpClick}>UpperCase</button>
+                    <button disabled={Text.length===0} className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleLoClick}>LowerCase</button>
+                    <button disabled={Text.length===0} className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={handleClearClick}>Clear Text</button>
+                    <button disabled={Text.length===0} className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={Speak}>Speak Text</button>
+                    <button disabled={Text.length===0} className="flex-1 bg-blue-800 text-white rounded-sm p-2 text-sm hover:text-blue-400 hover:font-semibold hover:bg-white" onClick={downloadText}>Download Text</button>
                 </div>
-                <div className="text-left" >
-                    <h2 className="text-lg font-bold ">Your Text Summary</h2>
-                    <p className="text-sm ">{Text.split(" ").length-1} Words and {Text.length} Characters</p>
-                    <p className="text-sm ">{0.008 * Text.split(" ").length} Minutes read</p>
+                <div className={`text-left ${containerStyle[props.mode]}`} >
+                    <h2 className={`text-lg font-bold ${containerStyle[props.mode]}`}>Your Text Summary</h2>
+                    <p className={`text-sm ${containerStyle[props.mode]}`}>{Text.split(/\s+/).filter((element)=>{return element.length!==0 }).length} Words and {Text.length} Characters</p>
+                    <p className={`text-sm ${containerStyle[props.mode]} `}>{0.008 * Text.split(" ").filter((element)=>{return element.length!==0 }).length} Minutes read</p>
                 </div>
                 <div className="mt-4">
-                    <h2  className="text-lg font-bold ">Preview</h2>
+                    <h2  className={'text-lg font-bold ${containerStyle[props.mode]} '}>Preview</h2>
                     <p  className=" p-2 rounded-md ">{Text.length > 0 ? Text : "Nothing to preview!"}</p>
                 </div>
             </div>

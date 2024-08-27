@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 
-function About() {
+function About(props) {
   const [openCollapse, setOpenCollapse] = useState(null);
 
   const toggleCollapse = (id) => {
     setOpenCollapse(openCollapse === id ? null : id);
+  };
+
+  const containerStyle = {
+    Light: 'bg-white text-gray-900',
+    Dark: 'bg-gray-800 text-white',
+    Red: 'bg-red-50 text-red-800',
+    Yellow: 'bg-yellow-50 text-yellow-800',
+    Green: 'bg-green-50 text-green-800 ',
   };
 
   return (
@@ -13,13 +21,13 @@ function About() {
       <div className="border-b border-gray-200">
         <h2>
           <button
-            className="flex items-center justify-between w-full p-4 text-left text-gray-900 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+            className={`${containerStyle[props.mode]} flex items-center justify-between w-full p-4 text-left text-gray-900 hover:bg-gray-200 focus:outline-none`}
             type="button"
             aria-expanded={openCollapse === 'collapseOne'}
             aria-controls="collapseOne"
             onClick={() => toggleCollapse('collapseOne')}
           >
-            Accordion Item #1
+            <span className={`font-bold ${containerStyle[props.mode]}`}>Analyze Your Text</span>
             <svg
               className={`w-4 h-4 transition-transform duration-200 ${openCollapse === 'collapseOne' ? 'rotate-180' : ''}`}
               fill="none"
@@ -41,8 +49,7 @@ function About() {
           className={`overflow-hidden transition-max-height duration-300 ease-in-out ${openCollapse === 'collapseOne' ? 'max-h-screen' : 'max-h-0'}`}
         >
           <div className="p-4 bg-white">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
+          Our platform offers robust text analysis tools designed to provide detailed insights into your content. Whether you need to count words, characters, or evaluate the readability of your text, our tools make it easy to break down and understand your content. This feature is ideal for writers, students, and professionals who want to improve the quality and clarity of their work.          </div>
         </div>
       </div>
 
@@ -50,13 +57,13 @@ function About() {
       <div className="border-b border-gray-200">
         <h2>
           <button
-            className="flex items-center justify-between w-full p-4 text-left text-gray-900 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+            className={`${containerStyle[props.mode]} flex items-center justify-between w-full p-4 text-left text-gray-900 hover:bg-gray-200 focus:outline-none`}
             type="button"
             aria-expanded={openCollapse === 'collapseTwo'}
             aria-controls="collapseTwo"
             onClick={() => toggleCollapse('collapseTwo')}
           >
-            Accordion Item #2
+            <span className={`${containerStyle[props.mode]} font-bold `}>Free to Use</span>
             <svg
               className={`w-4 h-4 transition-transform duration-200 ${openCollapse === 'collapseTwo' ? 'rotate-180' : ''}`}
               fill="none"
@@ -78,8 +85,9 @@ function About() {
           className={`overflow-hidden transition-max-height duration-300 ease-in-out ${openCollapse === 'collapseTwo' ? 'max-h-screen' : 'max-h-0'}`}
         >
           <div className="p-4 bg-white">
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
+          We believe in providing accessible tools for everyone, which is why our text analysis services are completely free to use. You can access all the features without any cost, making it easier for anyone to analyze and enhance their text without worrying about subscriptions or fees.
+
+</div>
         </div>
       </div>
 
@@ -87,13 +95,13 @@ function About() {
       <div className="border-b border-gray-200">
         <h2>
           <button
-            className="flex items-center justify-between w-full p-4 text-left text-gray-900 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+            className={`${containerStyle[props.mode]} flex items-center justify-between w-full p-4 text-left text-gray-900 hover:bg-gray-200 focus:outline-none`}
             type="button"
             aria-expanded={openCollapse === 'collapseThree'}
             aria-controls="collapseThree"
             onClick={() => toggleCollapse('collapseThree')}
           >
-            Accordion Item #3
+            <span className={`${containerStyle[props.mode]} font-bold`}>Browser Compatible</span>
             <svg
               className={`w-4 h-4 transition-transform duration-200 ${openCollapse === 'collapseThree' ? 'rotate-180' : ''}`}
               fill="none"
@@ -115,8 +123,7 @@ function About() {
           className={`overflow-hidden transition-max-height duration-300 ease-in-out ${openCollapse === 'collapseThree' ? 'max-h-screen' : 'max-h-0'}`}
         >
           <div className="p-4 bg-white">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
+          Our application is fully browser-compatible, ensuring that you can access and use our tools from any modern web browser. Whether you’re using Chrome, Firefox, Safari, or Edge, you’ll have a seamless experience with our platform. This compatibility means you can analyze your text anytime, anywhere, without needing to download or install any additional software.          </div>
         </div>
       </div>
     </div>
