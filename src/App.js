@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
+<<<<<<< HEAD
 import About from './components/About';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+=======
+// import About from './components/About';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+>>>>>>> d54dac8caacc034fb1080dbf024c6cdec452e8be
 
 function App() {
   const [Mode, setMode] = useState(false);
@@ -52,6 +57,7 @@ function App() {
 
   return (
     <>
+<<<<<<< HEAD
       <Router>
         <Navbar title="TextUtils" Mode={Mode} showAlert={showAlert} changingMode={changingMode} />
         <Alert alert={alert} />
@@ -60,6 +66,17 @@ function App() {
           <Route exact path="/" element={<Textform showAlert={showAlert} mode={Mode} />} />
         </Routes>
       </Router>
+=======
+      {/* <Router> */}
+        <Navbar title="TextUtils" Mode={Mode} showAlert={showAlert} changingMode={changingMode} />
+        <Alert alert={alert} />
+        <Textform showAlert={showAlert} Mode={Mode} />
+        {/* <Routes> */}
+          {/* <Route path="/About" element={<About />} />
+          <Route path="/" element={<Textform showAlert={showAlert} Mode={Mode} />} />
+        </Routes>
+      </Router> */}
+>>>>>>> d54dac8caacc034fb1080dbf024c6cdec452e8be
     </>
   );
 }
