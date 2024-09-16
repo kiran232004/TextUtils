@@ -15,7 +15,7 @@ function Navbar(props) {
     return (
         <nav className={`flex items-center justify-between p-4 ${containerStyle[props.Mode]}`}>
             <div className="flex items-center space-x-4">
-                <p className={`text-lg font-semibold ${containerStyle[props.Mode]}`}>TextUtils</p>
+                <p className={`text-lg font-semibold ${containerStyle[props.Mode]}`}>TextPro</p>
                 <Link className={`text-sm ${containerStyle[props.Mode]}`} to='/'>Home</Link>
                 <Link className={`text-sm ${containerStyle[props.Mode]}`} to='/About'>About</Link>
             </div>
@@ -51,7 +51,7 @@ function Navbar(props) {
     return (
         <nav className={`flex items-center justify-between p-4 ${modeStyles[props.Mode]}`}>
             <div className="flex items-center space-x-4">
-                <p className="text-lg font-semibold">TextUtils</p>
+                <p className="text-lg font-semibold">TextPro</p>
                 <a className="text-sm" href='#'>Home</a>
                 <a className="text-sm" href='#'>About</a>
             </div>
